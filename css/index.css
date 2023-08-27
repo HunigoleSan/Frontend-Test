@@ -53,25 +53,7 @@ body{
 .ingreso{
     width: 100%;
 }
-svg{
-    transform: rotate(35deg);
-    animation: animateLogoGame 7s linear infinite alternate;
-    transition: animation .5s ease;
-}
-svg:hover{
-    animation: animateLogoTemblor 3s linear;
-}
-@keyframes animateLogoGame {
-    0%,25%{
-        filter: drop-shadow(0px 0px 10px rgb(207, 86, 146));
-    }
-    30%,55%{
-        filter: drop-shadow(5px 5px 20px rgb(100, 207, 86));
-    }
-    60%,100%{
-        filter: drop-shadow(0px 0px 30px rgba(86, 193, 207, 1));
-    }
-}
+
 @keyframes animateLogoTemblor {
     0%,20%{
         transform: rotate(35deg);
@@ -94,6 +76,33 @@ svg:hover{
     justify-content: center;
     align-items: center;
     gap: .5rem;
+    padding: 1rem;
+}
+svg{
+    transform: rotate(35deg);
+    animation: animateLogoGame 5s linear infinite alternate;
+
+    display: block;
+    background-position: center;
+
+}
+svg:hover{
+    animation: animateLogoTemblor 5s linear;
+}
+@keyframes animateLogoGame {
+    0%,25%{
+        filter: drop-shadow(0px 0px 3px rgb(7, 30, 243));
+    }
+    25%,50%{
+        filter: drop-shadow(0px 0px 3px rgb(165, 8, 185));
+    }
+    50%,75%{
+        filter: drop-shadow(0px 0px 3px rgb(252, 230, 38));
+    }
+    75%,100%{
+        filter: drop-shadow(0px 0px 3px rgb(48, 255, 21));
+    }
+    
 }
 .titulo{
     color: white;
