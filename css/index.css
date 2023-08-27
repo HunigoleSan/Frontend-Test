@@ -9,6 +9,7 @@ body{
     );
     background-size: 500%;
     animation: animateBackgroundLobby 10s linear infinite alternate;
+    min-height: 100vh;
 }
 .lobby{
     width: 100%;
