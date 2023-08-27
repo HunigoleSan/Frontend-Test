@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es-pe">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Test</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header id="lobby" class="lobby">
+        
+        <div class="contenedor_modo">
+            <div class="logo">
+                <svg class="game-controller-outline" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M54.7863 29.1598C52.6301 19.4121 49.432 13.1941 44.3062 11.6789C43.3135 11.3893 42.2841 11.2448 41.25 11.25C38.0988 11.25 35.6121 13.125 30 13.125C24.3879 13.125 21.8965 11.25 18.75 11.25C17.6727 11.2444 16.6 11.3888 15.5625 11.6789C10.4297 13.1941 7.25859 19.418 5.07773 29.1598C2.85117 39.1102 3.2543 46.9723 7.60664 48.4816C10.6535 49.5363 13.3781 47.3555 15.9586 44.1457C18.8883 40.4895 22.4965 39.3645 30 39.3645C37.5035 39.3645 40.9711 40.4895 43.9055 44.1457C46.4836 47.3578 49.309 49.5117 52.275 48.5004C57.082 46.8586 57.0141 39.2273 54.7863 29.1598Z"
+                        stroke="white" stroke-width="2" stroke-miterlimit="10" />
+                    <path
+                        d="M34.2188 28.5938C35.5132 28.5938 36.5625 27.5444 36.5625 26.25C36.5625 24.9556 35.5132 23.9062 34.2188 23.9062C32.9243 23.9062 31.875 24.9556 31.875 26.25C31.875 27.5444 32.9243 28.5938 34.2188 28.5938Z"
+                        fill="white" />
+                    <path
+                        d="M39.375 33.75C38.9112 33.75 38.4578 33.6124 38.0723 33.3546C37.6867 33.0968 37.3863 32.7304 37.2091 32.3018C37.0319 31.8732 36.9858 31.4017 37.0767 30.9468C37.1676 30.492 37.3914 30.0744 37.7198 29.7469C38.0482 29.4194 38.4663 29.1966 38.9214 29.1068C39.3764 29.0171 39.8478 29.0643 40.276 29.2426C40.7041 29.4209 41.0698 29.7222 41.3266 30.1084C41.5834 30.4946 41.7199 30.9483 41.7187 31.4121C41.7172 32.0327 41.4696 32.6273 41.0302 33.0656C40.5908 33.5039 39.9956 33.75 39.375 33.75Z"
+                        fill="white" />
+                    <path
+                        d="M39.375 23.4375C40.6694 23.4375 41.7188 22.3882 41.7188 21.0938C41.7188 19.7993 40.6694 18.75 39.375 18.75C38.0806 18.75 37.0312 19.7993 37.0312 21.0938C37.0312 22.3882 38.0806 23.4375 39.375 23.4375Z"
+                        fill="white" />
+                    <path
+                        d="M44.5312 28.5938C45.8257 28.5938 46.875 27.5444 46.875 26.25C46.875 24.9556 45.8257 23.9062 44.5312 23.9062C43.2368 23.9062 42.1875 24.9556 42.1875 26.25C42.1875 27.5444 43.2368 28.5938 44.5312 28.5938Z"
+                        fill="white" />
+                    <path d="M18.75 20.625V31.875M24.375 26.25H13.125" stroke="white" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <h1 class="titulo">Frontend Test</h1>
+            </div>
+            <div class="ingreso">
+                <div class="datos">
+                    <input class="control" type="text" placeholder="Nombre de Jugador" maxlength="25">
+                </div>
+                <div class="modalidad">
+                    <h2 class="subtitulo">Selecciona Modo</h2>
+                    <div id="modo_html" class="modos">HTML</div>
+                    <div id="modo_css" class="modos">CSS</div>
+                </div>
+            </div>
+            
+        </div>
+    </header>
+    <script src="js/dificultades_obj.js" type="module"></script>
+    <script src="js/modo_dificultad.js" type="module"></script>
+</body>
+
+</html>

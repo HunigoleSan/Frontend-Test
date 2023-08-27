@@ -1,0 +1,207 @@
+body{
+    background-image: linear-gradient(
+        135deg,
+        var(--azul-1),
+        var(--purpura-2),
+        var(--azul-2),
+        var(--purpura-1),
+        var(--azul-1)
+    );
+    background-size: 500%;
+    animation: animateBackgroundLobby 10s linear infinite alternate;
+}
+.lobby{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 1rem;
+    position: relative;
+}
+@keyframes animateBackgroundLobby {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+    
+    
+}
+
+.contenedor_modo,
+.ventana_modo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 350px;
+    min-height: 550px;
+    padding: 1.6rem;
+    gap: 2rem;
+    background: rgba(0,0,0,25%);
+    backdrop-filter: blur(10px);
+    border-radius: 7px;
+}
+
+
+.ingreso{
+    width: 100%;
+}
+svg{
+    transform: rotate(35deg);
+    animation: animateLogoGame 7s linear infinite alternate;
+    transition: animation .5s ease;
+}
+svg:hover{
+    animation: animateLogoTemblor 3s linear;
+}
+@keyframes animateLogoGame {
+    0%,25%{
+        filter: drop-shadow(0px 0px 10px rgb(207, 86, 146));
+    }
+    30%,55%{
+        filter: drop-shadow(5px 5px 20px rgb(100, 207, 86));
+    }
+    60%,100%{
+        filter: drop-shadow(0px 0px 30px rgba(86, 193, 207, 1));
+    }
+}
+@keyframes animateLogoTemblor {
+    0%,20%{
+        transform: rotate(35deg);
+    }
+    20%,40%{
+        transform: rotate(-35deg);
+    }
+    40%,60%{
+        transform: rotate(15deg);
+    }
+    60%,80%{
+        transform: rotate(-15deg);
+    }
+    80%,100%{
+        transform: rotate(35deg);
+    }
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+.titulo{
+    color: white;
+    font-size: 2rem;
+}
+.datos{
+    width: 100%;
+}
+.control{
+    width: 100%;
+    padding: .7rem;
+    border-radius: 7px;
+    outline: none;
+    border: 0px;
+    
+}
+.modalidad{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0rem;
+}
+.subtitulo{
+    color: white;
+}
+.modos{
+    width: 100%;
+    display: block;
+    padding: .7rem;
+    background: rgba(61, 61, 61, 0.315);
+    border-radius: 7px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+@media screen and (max-width: 750px) {
+    .ventana_modo{
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+    }
+    .modo_dificultad{
+        animation: efectoAparicion 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+    @keyframes efectoAparicion {
+        0%,30%{
+            opacity: 0;
+        }
+        30%,100%{
+            opacity: 1;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .lobby{
+        width: 95%;
+        margin: 0 auto;
+    }
+}
+/* ESTILOS JAVASCRIPT */
+.ventana_modo{
+    background: rgb(29, 29, 29);
+    justify-content: space-between;
+    flex-direction: column-reverse;
+
+}
+.modo_dificultad{
+    width: 100%;
+    background-image: linear-gradient(
+        135deg,
+        var(--azul-1),
+        var(--purpura-2),
+        var(--azul-2),
+        var(--purpura-1),
+        var(--azul-1)
+    );
+    background-size: 500%;
+    animation: animateBackgroundLobby 10s linear infinite alternate;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: .7rem;
+    cursor: pointer;
+    border-radius: 7px;
+    color: white;
+}
+.deshabilitar {
+    /* Estilos para el div deshabilitado */
+    background-color: #d8233b;
+
+    cursor: not-allowed;
+    pointer-events: none; /* Evita que se pueda hacer clic en el div */
+}
+.cerrar_dificultad{
+    text-align: right;
+    width: 100%;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
