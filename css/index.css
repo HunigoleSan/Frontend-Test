@@ -1,17 +1,16 @@
-body{
-    background-image: linear-gradient(
-        135deg,
-        var(--azul-1),
-        var(--purpura-2),
-        var(--azul-2),
-        var(--purpura-1),
-        var(--azul-1)
-    );
+body {
+    background-image: linear-gradient(135deg,
+            var(--azul-1),
+            var(--purpura-2),
+            var(--azul-2),
+            var(--purpura-1),
+            var(--azul-1));
     background-size: 500%;
     animation: animateBackgroundLobby 10s linear infinite alternate;
     min-height: 100vh;
 }
-.lobby{
+
+.lobby {
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -20,22 +19,25 @@ body{
     padding: 5rem 1rem;
     position: relative;
 }
+
 @keyframes animateBackgroundLobby {
-    0%{
+    0% {
         background-position: 0% 50%;
     }
-    50%{
+
+    50% {
         background-position: 100% 50%;
     }
-    100%{
+
+    100% {
         background-position: 0% 50%;
     }
-    
-    
+
+
 }
 
 .contenedor_modo,
-.ventana_modo{
+.ventana_modo {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -44,41 +46,52 @@ body{
     min-height: 550px;
     padding: 1.6rem;
     gap: 2rem;
-    background: rgba(0,0,0,25%);
+    background: rgba(0, 0, 0, 25%);
     backdrop-filter: blur(10px);
     border-radius: 7px;
 }
 
-
-.ingreso{
+.ingreso {
     width: 100%;
 }
 
 @keyframes animateLogoTemblor {
-    0%,20%{
+
+    0%,
+    20% {
         transform: rotate(35deg);
     }
-    20%,40%{
+
+    20%,
+    40% {
         transform: rotate(-35deg);
     }
-    40%,60%{
+
+    40%,
+    60% {
         transform: rotate(15deg);
     }
-    60%,80%{
+
+    60%,
+    80% {
         transform: rotate(-15deg);
     }
-    80%,100%{
+
+    80%,
+    100% {
         transform: rotate(35deg);
     }
 }
-.logo{
+
+.logo {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: .5rem;
     padding: 1rem;
 }
-svg{
+
+svg {
     transform: rotate(35deg);
     animation: animateLogoGame 5s linear infinite alternate;
 
@@ -86,40 +99,55 @@ svg{
     background-position: center;
 
 }
-svg:hover{
-    animation: animateLogoTemblor 5s linear;
-}
-@keyframes animateLogoGame {
-    0%,25%{
-        filter: drop-shadow(0px 0px 3px rgb(7, 30, 243));
-    }
-    25%,50%{
-        filter: drop-shadow(0px 0px 3px rgb(165, 8, 185));
-    }
-    50%,75%{
-        filter: drop-shadow(0px 0px 3px rgb(252, 230, 38));
-    }
-    75%,100%{
-        filter: drop-shadow(0px 0px 3px rgb(48, 255, 21));
-    }
+
+svg:hover {
+    animation: animateLogoGame 5s linear infinite alternate;
     
 }
-.titulo{
+
+@keyframes animateLogoGame {
+
+    0%,
+    25% {
+        filter: drop-shadow(0px 0px 3px rgb(7, 30, 243));
+    }
+
+    25%,
+    50% {
+        filter: drop-shadow(0px 0px 3px rgb(165, 8, 185));
+    }
+
+    50%,
+    75% {
+        filter: drop-shadow(0px 0px 3px rgb(252, 230, 38));
+    }
+
+    75%,
+    100% {
+        filter: drop-shadow(0px 0px 3px rgb(48, 255, 21));
+    }
+
+}
+
+.titulo {
     color: white;
     font-size: 2rem;
 }
-.datos{
+
+.datos {
     width: 100%;
 }
-.control{
+
+.control {
     width: 100%;
     padding: .7rem;
     border-radius: 7px;
     outline: none;
     border: 0px;
-    
+
 }
-.modalidad{
+
+.modalidad {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -128,10 +156,12 @@ svg:hover{
     gap: 1rem;
     padding: 1rem 0rem;
 }
-.subtitulo{
+
+.subtitulo {
     color: white;
 }
-.modos{
+
+.modos {
     width: 100%;
     display: block;
     padding: .7rem;
@@ -144,51 +174,58 @@ svg:hover{
     font-size: 1.2rem;
     cursor: pointer;
 }
+
 @media screen and (max-width: 750px) {
-    .ventana_modo{
+    .ventana_modo {
         position: absolute;
         z-index: 2;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        
+
     }
-    .modo_dificultad{
+
+    .modo_dificultad {
         animation: efectoAparicion 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     }
+
     @keyframes efectoAparicion {
-        0%,30%{
+
+        0%,
+        30% {
             opacity: 0;
         }
-        30%,100%{
+
+        30%,
+        100% {
             opacity: 1;
         }
     }
 }
 
 @media screen and (max-width: 375px) {
-    .lobby{
+    .lobby {
         width: 95%;
         margin: 0 auto;
     }
 }
+
 /* ESTILOS JAVASCRIPT */
-.ventana_modo{
+.ventana_modo {
     background: rgb(29, 29, 29);
     justify-content: space-between;
     flex-direction: column-reverse;
 
 }
-.modo_dificultad{
+
+.modo_dificultad {
     width: 100%;
-    background-image: linear-gradient(
-        135deg,
-        var(--azul-1),
-        var(--purpura-2),
-        var(--azul-2),
-        var(--purpura-1),
-        var(--azul-1)
-    );
+    background-image: linear-gradient(135deg,
+            var(--azul-1),
+            var(--purpura-2),
+            var(--azul-2),
+            var(--purpura-1),
+            var(--azul-1));
     background-size: 500%;
     animation: animateBackgroundLobby 10s linear infinite alternate;
     text-align: center;
@@ -199,15 +236,53 @@ svg:hover{
     cursor: pointer;
     border-radius: 7px;
     color: white;
+    display: block;
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform, opacity;
+    transition-property: transform, opacity;
+}
+
+.modo_dificultad:hover {
+    transform: translateY(-5px);
+
+}
+
+
+
+.modo_dificultad:before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: -webkit-radial-gradient(center, ellipse, var(--purpura-2) 0%, rgba(219, 36, 36, 0) 80%);
+    background: radial-gradient(ellipse at center, var(--purpura-2) 0%, rgba(0, 0, 0, 0) 80%);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform, opacity;
+    transition-property: transform, opacity;
+}
+.modo_dificultad:hover:before {
+    opacity: 1;
+    transform: translateY(5px);
 }
 .deshabilitar {
     /* Estilos para el div deshabilitado */
     background-color: #d8233b;
 
     cursor: not-allowed;
-    pointer-events: none; /* Evita que se pueda hacer clic en el div */
+    pointer-events: none;
+    /* Evita que se pueda hacer clic en el div */
 }
-.cerrar_dificultad{
+
+.cerrar_dificultad {
     text-align: right;
     width: 100%;
     cursor: pointer;

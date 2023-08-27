@@ -2,11 +2,18 @@ import { objModalidadesDificultades } from "./dificultades_obj.js";
 window.addEventListener('DOMContentLoaded',function(){
     const MODOS_HTML = document.querySelectorAll('.modos')
     const LOBBY_HTML = document.getElementById('lobby')
+    const LOGO_HTML = document.getElementById('logo')
+    let audio_modo = new Audio("sonidos/audios/woosh.mp3")
+    let audio_dificultad = new Audio("sonidos/audios/ping.mp3")
+    let audio_cerrar_dificultad = new Audio('sonidos/audios/swoosh_2.mp3')
+    let audio_game_logo = new Audio('sonidos/audios/game_pad.mp3')
     let id_modo = ''
     
     
     MODOS_HTML.forEach(function(currentValue,index,item){
+        
         currentValue.addEventListener('click',function(){
+            audio_modo.play()
             id_modo = currentValue.id
             ventanaDificultad(id_modo)
         })
@@ -58,7 +65,13 @@ window.addEventListener('DOMContentLoaded',function(){
                         elementos_dificultades_JS.textContent = text
                         ventana_modalidad_JS.insertAdjacentElement('afterbegin',elementos_dificultades_JS)
                         console.log(objModalidadesDificultades[id_modo][dificultades].id)
-                        
+                    }
+                    if(ventana_modalidad_JS !== null){
+                        let modo_dificultad_HTML = document.querySelectorAll('.modo_dificultad')
+                        if( modoSeleccionado !== null){
+                            modoSeleccionado(modo_dificultad_HTML)
+
+                        }
                     }
                     
                     
@@ -78,7 +91,13 @@ window.addEventListener('DOMContentLoaded',function(){
                         console.log(objModalidadesDificultades[id_modo][dificultades].id)
                         
                     }
-                    
+                    if(ventana_modalidad_JS !== null){
+                        let modo_dificultad_HTML = document.querySelectorAll('.modo_dificultad')
+                        if( modoSeleccionado !== null){
+                            modoSeleccionado(modo_dificultad_HTML)
+
+                        }
+                    }
                     
                 }
             } 
@@ -91,11 +110,30 @@ window.addEventListener('DOMContentLoaded',function(){
         if(cerrar_JS.parentNode !== null){
             console.log("El elemento está en el DOM")
             cerrar_JS.addEventListener('click',function(){
+                audio_cerrar_dificultad.play()
                 eliminar_ventada_modalidad_HTML.remove()
                 MODOS_HTML[0].classList.remove('deshabilitar')
                 MODOS_HTML[1].classList.remove('deshabilitar')
             })
         }
+    }
+    function modoSeleccionado(modo_de_dificultad){
+        console.log(modo_de_dificultad)
+        modo_de_dificultad.forEach(function(currentValue,index,item){
+            console.log("eeeeeeeeeeeeeee")
+            currentValue.addEventListener('click',function(){
+                audio_dificultad.play()
+                console.log(currentValue)
+            })
+        })
+    }
+    LOGO_HTML.addEventListener("mouseenter",function(){
+        LOGO_HTML.style.animation = "animateLogoTemblor 2s linear";
+        audio_game_logo.play()
+        setTimeout(eliminarAnimation, 3000);
+    })
+    function eliminarAnimation(){
+        LOGO_HTML.style.animation = "None"
     }
 })
 
