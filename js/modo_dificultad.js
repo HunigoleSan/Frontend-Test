@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded',function(){
     const MODOS_HTML = document.querySelectorAll('.modos')
     const LOBBY_HTML = document.getElementById('lobby')
     const LOGO_HTML = document.getElementById('logo')
+    let nombre_jugador_HTML = document.getElementById('nombre_jugador')
     let audio_modo = new Audio("sonidos/audios/woosh.mp3")
     let audio_dificultad = new Audio("sonidos/audios/ping.mp3")
     let audio_cerrar_dificultad = new Audio('sonidos/audios/swoosh_2.mp3')
@@ -41,9 +42,7 @@ window.addEventListener('DOMContentLoaded',function(){
         let ventana_modalidad_JS = document.createElement('div')
         let id_ventana = id_modo.substring(5)
         let cerrar_JS = document.createElement('p')
-        
         ventana_modalidad_JS.classList.add('ventana_modo')
-
         ventana_modalidad_JS.id = id_ventana
         cerrar_JS.classList.add('cerrar_dificultad')
         cerrar_JS.textContent = 'X'
@@ -51,7 +50,7 @@ window.addEventListener('DOMContentLoaded',function(){
 
         ventana_modalidad_JS.insertAdjacentElement("afterbegin",cerrar_JS)
         LOBBY_HTML.insertAdjacentElement('beforeend',ventana_modalidad_JS)
-        /* Creando dificultades */
+        
         if('modo_html' === id_modo){
 
             for(let propiedad in objModalidadesDificultades){
@@ -123,17 +122,62 @@ window.addEventListener('DOMContentLoaded',function(){
             console.log("eeeeeeeeeeeeeee")
             currentValue.addEventListener('click',function(){
                 audio_dificultad.play()
-                console.log(currentValue)
+                let obtenerNombreValidado = validarNombreJugador()
+                console.log(currentValue.id)
+                redireccionarJugadorAlJuego(currentValue,obtenerNombreValidado)
             })
         })
     }
+
     LOGO_HTML.addEventListener("mouseenter",function(){
         LOGO_HTML.style.animation = "animateLogoTemblor 2s linear";
-        audio_game_logo.play()
+        audio_game_logo.play()  
         setTimeout(eliminarAnimation, 3000);
     })
     function eliminarAnimation(){
         LOGO_HTML.style.animation = "None"
+    }
+    function validarNombreJugador(){
+        let nombre_jugador = nombre_jugador_HTML.value
+        let nuevo_nombre = ""
+        if(nombre_jugador.trim().length === 0){
+            console.log("No puede estar vacio el nombre")
+        }else{
+            let nombreValidadoBandera = false
+            for (let caracter = 0; caracter < nombre_jugador.length; caracter++) {
+                let deletreo = nombre_jugador[caracter]
+
+                if(deletreo === "<" || deletreo === ">" ||
+                    deletreo === "." || deletreo === "," || 
+                    deletreo === ";" || deletreo === "-" || 
+                    deletreo === "+" || deletreo === "*"){
+                    console.log("eliminar caracter: ",deletreo)
+                    nombreValidadoBandera = false
+                }else{
+                    /* nuevo_nombre += deletreo */
+                    nuevo_nombre += deletreo
+                    nombreValidadoBandera = true
+                }
+            }
+            if (nombreValidadoBandera === true){
+
+                return nuevo_nombre
+            }
+        }
+        
+    }
+    function redireccionarJugadorAlJuego(currentValue,obtenerNombreValidado){
+        let modo_seleccionado = currentValue.textContent
+        console.log(modo_seleccionado)
+        if("facil" === modo_seleccionado || "normal" === modo_seleccionado ||
+        "dificil" === modo_seleccionado || "avanzado" === modo_seleccionado){
+            let nombreEncriptado = encodeURIComponent(obtenerNombreValidado)
+            window.location.href = '../templates/juego.html?nombre=' + nombreEncriptado +'?modo='+ modo_seleccionado
+            console.log("El modo seleccionado es:",modo_seleccionado)
+        }else{
+            console.log("Error de sistema")
+        }
+        
     }
 })
 
