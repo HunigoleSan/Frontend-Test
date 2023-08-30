@@ -172,7 +172,7 @@ window.addEventListener('DOMContentLoaded',function(){
         "dificil" === modo_seleccionado || "avanzado" === modo_seleccionado){
             let nombreEncriptado = encodeURIComponent(obtenerNombreValidado)
 
-            urlGamePlayRedirecionar = 'templates/juego.html?nombre=' + nombreEncriptado +'?modo='+ modo_seleccionado
+            let urlGamePlayRedirecionar = 'templates/juego.html?nombre=' + nombreEncriptado +'?modo='+ modo_seleccionado
             window.location.href = urlGamePlayRedirecionar
             console.log("El modo seleccionado es:",modo_seleccionado)
         }else{
