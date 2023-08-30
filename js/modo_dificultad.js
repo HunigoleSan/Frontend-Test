@@ -160,7 +160,6 @@ window.addEventListener('DOMContentLoaded',function(){
                 }
             }
             if (nombreValidadoBandera === true){
-
                 return nuevo_nombre
             }
         }
