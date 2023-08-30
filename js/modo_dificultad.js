@@ -171,12 +171,9 @@ window.addEventListener('DOMContentLoaded',function(){
         if("facil" === modo_seleccionado || "normal" === modo_seleccionado ||
         "dificil" === modo_seleccionado || "avanzado" === modo_seleccionado){
             let nombreEncriptado = encodeURIComponent(obtenerNombreValidado)
-            let repositorioInicial = 'Frontend-Test';
-            var urlActual = window.location.href;
-            console.log("URL actual:", urlActual);
-            urlActual = 'Frontend-test/templates/juego.html?nombre=' + nombreEncriptado +'?modo='+ modo_seleccionado
-            console.log("URL nuevo:", urlActual);
-            window.location.href = urlActual
+
+            urlGamePlayRedirecionar = 'templates/juego.html?nombre=' + nombreEncriptado +'?modo='+ modo_seleccionado
+            window.location.href = urlGamePlayRedirecionar
             console.log("El modo seleccionado es:",modo_seleccionado)
         }else{
             console.log("Error de sistema")
